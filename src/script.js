@@ -30,27 +30,27 @@ scene.add(sepGroup);
 
 const s1 = new THREE.Mesh(
   new THREE.SphereGeometry(1, 32, 1100),
-  new THREE.MeshBasicMaterial({ map: sTexture1 })
+  new THREE.MeshLambertMaterial({ map: sTexture1 })
 );
 
 const s2 = new THREE.Mesh(
   new THREE.SphereGeometry(1, 32, 1100),
-  new THREE.MeshBasicMaterial({ map: sTexture2 })
+  new THREE.MeshLambertMaterial({ map: sTexture2 })
 );
 
 const s3 = new THREE.Mesh(
   new THREE.SphereGeometry(2, 32, 1100),
-  new THREE.MeshBasicMaterial({ map: sTexture3 })
+  new THREE.MeshLambertMaterial({ map: sTexture3 })
 );
 
 const s4 = new THREE.Mesh(
   new THREE.SphereGeometry(1, 32, 1101),
-  new THREE.MeshBasicMaterial({ map: sTexture4 })
+  new THREE.MeshLambertMaterial({ map: sTexture4 })
 );
 
 const s5 = new THREE.Mesh(
   new THREE.SphereGeometry(1, 32, 1100),
-  new THREE.MeshBasicMaterial({ map: sTexture5 })
+  new THREE.MeshLambertMaterial({ map: sTexture5 })
 );
 
 s1.position.x = -5;
@@ -68,6 +68,15 @@ sepGroup.add(s2);
 sepGroup.add(s3);
 sepGroup.add(s4);
 sepGroup.add(s5);
+
+const ambientLight = new THREE.AmbientLight(0xff0, 0.4);
+scene.add(ambientLight);
+
+const pointLight = new THREE.PointLight(0xff00ff, 1);
+pointLight.position.x = 8;
+pointLight.position.y = 8;
+pointLight.position.z = 0;
+scene.add(pointLight);
 
 const sizes = {
   width: window.innerWidth,
@@ -106,8 +115,8 @@ const tick = () => {
   sepGroup.rotation.x = elapsedTime / 15;
   sepGroup.rotation.Z = -elapsedTime / 10;
 
-  s1.rotation.y = -elapsedTime / 3;
-  s2.rotation.y = -elapsedTime / 4;
+  s1.rotation.y = elapsedTime / 3;
+  s2.rotation.y = elapsedTime / 4;
   s3.rotation.y = elapsedTime / 5;
   s4.rotation.y = elapsedTime / 4;
   s5.rotation.y = elapsedTime / 3;
