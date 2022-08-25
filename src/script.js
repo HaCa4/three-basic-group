@@ -68,7 +68,7 @@ scene.add(pointLight);
 
 const fontLoader = new FontLoader();
 fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
-  const textGeometry = new TextGeometry("Planet Tests", {
+  const textGeometry = new TextGeometry("Planet Test - 1", {
     font: font,
     size: 0.5,
     height: 0.2,
