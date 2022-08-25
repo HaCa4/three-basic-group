@@ -33,7 +33,6 @@ const sCenter = new THREE.Mesh(
 );
 sCenter.position.x = 0;
 sCenter.material.shininess = 30;
-sCenter.material.specular = 0xff0000;
 scene.add(sCenter);
 
 const geoS = new THREE.SphereGeometry(0.5, 32, 1100);
