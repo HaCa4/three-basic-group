@@ -114,9 +114,9 @@ window.addEventListener("resize", () => {
 });
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
-camera.position.x = 5;
-camera.position.y = 4;
-camera.position.z = 5;
+camera.position.x = 7;
+camera.position.y = 5;
+camera.position.z = 8;
 scene.add(camera);
 
 const controls = new OrbitControls(camera, canvas);
