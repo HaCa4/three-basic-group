@@ -4,7 +4,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 
-console.time("tick");
+console.time("Rendering Time");
 const clock = new THREE.Clock();
 
 const textureLoader = new THREE.TextureLoader();
@@ -15,7 +15,6 @@ sTextureOthers.minFilter = THREE.NearestFilter;
 const sTextureCenter = textureLoader.load("/textures/2.jpg");
 sTextureCenter.minFilter = THREE.NearestFilter;
 
-const matcapTexture = textureLoader.load("/textures/8.png");
 const textTexture = textureLoader.load("/textures/5.png");
 
 //BASE
@@ -69,20 +68,17 @@ scene.add(pointLight);
 
 const fontLoader = new FontLoader();
 fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
-  const textGeometry = new TextGeometry(
-    "Planet Trial", //Text
-    {
-      font: font,
-      size: 0.5,
-      height: 0.2, //depth
-      curveSegments: 30, // surface curve
-      bevelEnabled: true, //eğim
-      bevelThickness: 0.04, //depth
-      bevelSize: 0.03,
-      bevelOffset: 0.01,
-      bevelSegments: 2,
-    }
-  );
+  const textGeometry = new TextGeometry("Planet Tests", {
+    font: font,
+    size: 0.5,
+    height: 0.2,
+    curveSegments: 30,
+    bevelEnabled: true,
+    bevelThickness: 0.04,
+    bevelSize: 0.03,
+    bevelOffset: 0.01,
+    bevelSegments: 2,
+  });
 
   const material = new THREE.MeshMatcapMaterial({ color: 0xffff00 });
   const material2 = new THREE.MeshMatcapMaterial({ matcap: textTexture });
